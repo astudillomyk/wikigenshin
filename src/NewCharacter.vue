@@ -86,7 +86,6 @@ export default {
         const response = await axios.post('http://localhost:3000/character', this.character);
         console.log('Personaje creado:', response.data);
         
-        // Restablecer los campos del formulario después de crear el personaje
         this.character = {
           name: '',
           rarity: '',
@@ -98,7 +97,6 @@ export default {
         };
       } catch (error) {
         console.error(error);
-        // Manejar el error de creación de personaje aquí si es necesario
       }
     }
   }

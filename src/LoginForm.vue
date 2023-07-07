@@ -30,7 +30,6 @@ export default {
   methods: {
   async loginUser() {
     try {
-      // Verificar los datos registrados antes de iniciar sesión
       const registeredUsersResponse = await axios.get('http://localhost:3000/auth/register');
       const registeredUsers = registeredUsersResponse.data;
 
@@ -40,23 +39,19 @@ export default {
         );
 
         if (matchedUser) {
-          // Inicio de sesión exitoso, redirigir a la página UserPage.vue
           const user = {
             email: matchedUser.email,
             name: matchedUser.name
           };
           this.$router.push({ path: '/userpage', query: user });
         } else {
-          // Manejar caso de inicio de sesión fallido
           console.log('Inicio de sesión fallido');
         }
       } else {
-        // Manejar respuesta vacía o sin usuarios registrados
         console.log('No hay usuarios registrados');
       }
     } catch (error) {
       console.error(error);
-      // Manejar el error de inicio de sesión aquí si es necesario
     }
   }
 }

@@ -45,17 +45,14 @@ export default {
           email: this.email,
           password: this.password
         });
-        console.log(response.data); // Puedes hacer algo con la respuesta si es necesario
-        // Restablecer los campos de entrada después del registro exitoso si lo deseas
+        console.log(response.data); 
         this.name = '';
         this.email = '';
         this.password = '';
         this.confirmPassword = '';
-        // Redireccionar a la página principal
         this.$router.push('/');
       } catch (error) {
         console.error(error);
-        // Manejar el error de registro aquí si es necesario
       }
     }
   }
